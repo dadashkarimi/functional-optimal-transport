@@ -7,5 +7,5 @@ We evaluate the proposed method by measuring the similarity between connectomes 
 
 # Optimal Transport 
 
-<img src="https://render.githubusercontent.com/render/math?math=    \min_{ T} \Big\{,  = -1">
+<img src="https://render.githubusercontent.com/render/math?math=\min_{T}\Big\{,= -1">
 
