@@ -22,9 +22,9 @@ Admissible solution for Kantorvich relaxation is defined by a coupling matrix <i
 As a control we run a couple of other experiments to verify usefulness of the new connectomes in brain-behavior association and individual classification.
 To this aim we partition our data into three folds <img src="https://render.githubusercontent.com/render/math?math=g_1, g_2,"> and <img src="https://render.githubusercontent.com/render/math?math=g_3"> with respective ratio of \{0.25,0.5,0.25\}. 
 We first train optimal transport mapping  T using all pairs of <img src="https://render.githubusercontent.com/render/math?math=\mu"> and <img src="https://render.githubusercontent.com/render/math?math=\nu"> in <img src="https://render.githubusercontent.com/render/math?math=g_1">. 
-Then we apply T on all \mu in g_3 to get high resolution \nu (i.e., here from <img src="https://render.githubusercontent.com/render/math?math=268 \rightarrow 368">).
-At the same time, we train a predictive model on all functional connectomes <img src="https://render.githubusercontent.com/render/math?math=F_{\nu} in g_2"> (i.e., <img src="https://render.githubusercontent.com/render/math?math=F_{\nu} \in \mathbb{R}^{368\times 368}">). 
-At the end, we run the model on all functional connectomes obtained from optimal transport named <img src="https://render.githubusercontent.com/render/math?math=F^{T}_{\nu} in g_3"> (i.e., test).
+Then we apply T on all <img src="https://render.githubusercontent.com/render/math?math=\mu"> in <img src="https://render.githubusercontent.com/render/math?math=g_3"> to get high resolution <img src="https://render.githubusercontent.com/render/math?math=\nu"> (i.e., here from <img src="https://render.githubusercontent.com/render/math?math=268 \rightarrow 368">).
+At the same time, we train a predictive model on all functional connectomes <img src="https://render.githubusercontent.com/render/math?math=F_{\nu} in g_2"> (i.e., <img src="https://render.githubusercontent.com/render/math?math=F_{\nu}\in\mathbb{R}^{368\times 368}">). 
+At the end, we run the model on all functional connectomes obtained from optimal transport named <img src="https://render.githubusercontent.com/render/math?math=F^{T}_{\nu}\in g_3"> (i.e., test).
 Our baseline is to test the same model on actual functional connectomes <img src="https://render.githubusercontent.com/render/math?math=F_{\nu}">.
 We used fluid intelligence to study brain-behavior association and sex to classify participants based on.
 We also tested significance of the results using re-sampled ttest. 
