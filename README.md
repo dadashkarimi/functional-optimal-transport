@@ -4,3 +4,8 @@ Here we propose to use optimal transport, a traditional mathematical technique, 
 We evaluate the proposed method by measuring the similarity between connectomes obtained by optimal transports and analogous connectomes in training.
 
 ![alt text](fig-1.png)
+
+# Optimal Transport 
+
+<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
+
