@@ -7,5 +7,5 @@ We evaluate the proposed method by measuring the similarity between connectomes 
 
 # Optimal Transport 
 
-<img src="https://render.githubusercontent.com/render/math?math=    \min_{\pazocal T} \Big\{ \sum_i c(x_i,\pazocal T (x_i)) : \pazocal T_{\sharp} \alpha = \beta \Big\},  = -1">
+<img src="https://render.githubusercontent.com/render/math?math=    \min_{ T} \Big\{ \sum_i c(x_i, T (x_i)) : T_{\sharp} \alpha = \beta \Big\},  = -1">
 
