@@ -28,18 +28,14 @@ where:
 
 ![alt text](ot-eq.png)
 
-The mapping $\pazocal{T}$ represents the optimal way of transforming the brain activity data from $n$ regions into $m$ regions.
+The mapping ${T}$ represents the optimal way of transforming the brain activity data from $n$ regions into $m$ regions.
 
  Yet, solving a large linear program is computationally hard \cite{Dantzig:83}.
 Thus, we use the  entropy regularization, which gives an approximation solution with complexity of  $\mathcal{O}(n^2\log (n)\eta^{-3})$ for $\epsilon = \frac{4\log(n)}{\eta}$ \cite{Peyre:2019}, and instead solve the following:
- \begin{equation}
- \label{eq:reg}
-    L_c(\mu_t,\nu_t) = \min_{\pazocal{T}}C^T \pazocal{T} - \epsilon H(\pazocal T)\textbf{ s.t, } A\underline{\pazocal{T}}=   \begin{bmatrix}
-\mu_t \\
-\nu_t 
-\end{bmatrix} .
-\end{equation}
- Specifically, we use the Sinkhorn algorithm---an iterative solution for Equation~\ref{eq:reg} \cite{Altschuler:2017}---to find the optimum mapping $\pazocal{T}$ as implemented in the Python Optimal Transport (POT) toolbox \cite{flamary2017pot}.
+
+<img src="https://render.githubusercontent.com/render/math?math=L_c(\mu_t,\nu_t) =\min_{{T}}C^T {T} - \epsilon H(T)\textbf{ s.t, } A\underline{{T}}=\begin{bmatrix}\mu_t \\ \nu_t \end{bmatrix}">
+
+ Specifically, we use the Sinkhorn algorithm---an iterative solution for Equation~\ref{eq:reg} \cite{Altschuler:2017}---to find the optimum mapping ${T}$ as implemented in the Python Optimal Transport (POT) toolbox \cite{flamary2017pot}.
 
 ```python
 
