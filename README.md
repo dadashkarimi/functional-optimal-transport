@@ -18,6 +18,64 @@ Admissible solution for Kantorvich relaxation is defined by a coupling matrix <i
 
 <img src="https://render.githubusercontent.com/render/math?math=U(a,b)=\{{T}\in\mathbb{R}^{n\times m}_+:{T}{1}_m =a,{T}^T{1}_n=b\},">
 
+# Entropy Regularization and Functional Optimal Transport
+
+```python
+import numpy as np
+import matplotlib.pylab as pl
+import matplotlib.pyplot as plt
+import ot
+import ot.plot
+from ot.datasets import make_1D_gauss as gauss
+import pandas as pd
+from sklearn import preprocessing
+from sklearn.preprocessing import normalize
+from scipy.io import loadmat
+from scipy.io import loadmat
+import ot
+import ot.plot
+from ot.datasets import make_1D_gauss as gauss
+import pandas as pd
+import random
+import scipy.io as sio
+import ot
+import ot.plot
+from ot.datasets import make_1D_gauss as gauss
+import pandas as pd
+import random
+from progress.bar import Bar
+
+def corr2_coeff(A, B):
+    # Rowwise mean of input arrays & subtract from input arrays themeselves
+    A_mA = A - A.mean(1)[:, None]
+    B_mB = B - B.mean(1)[:, None]    # Sum of squares across rows
+    ssA = (A_mA**2).sum(1)
+    ssB = (B_mB**2).sum(1)
+    # Finally get corr coeff
+    return np.dot(A_mA, B_mB.T) / np.sqrt(np.dot(ssA[:, None],ssB[None]))
+
+
+all_268_mat = sio.loadmat('data/REST1/all_268.mat')
+all_368_mat = sio.loadmat('data/REST1/all_368.mat')
+all_268 = all_268_mat['data']
+all_368 = all_368_mat['data']
+from numpy import genfromtxt
+all_behav = genfromtxt('data/REST1/IQ.txt', delimiter=',')
+all_sex = genfromtxt('data/REST1/gender.txt', delimiter=',')
+
+test_size = 200
+train_size = all_268.shape[0]-test_size
+random_samples = random.sample(range(0, all_268.shape[0]), all_268.shape[0])
+train_index = random_samples[0:train_size]
+test_index = random_samples[train_size:]
+
+coord_268 =pd.read_csv('data/REST1/shen_268_matrix.csv', sep=',',header=None)
+coord_368 = pd.read_csv('data/REST1/shen_367_matrix.csv', sep=',',header=None)
+M = ot.dist(coord_268, coord_368,metric='cityblock')
+M /= M.max()
+```
+
+
 # Parameter Tuning
 As a control we run a couple of other experiments to verify usefulness of the new connectomes in brain-behavior association and individual classification.
 To this aim we partition our data into three folds <img src="https://render.githubusercontent.com/render/math?math=g_1, g_2,"> and <img src="https://render.githubusercontent.com/render/math?math=g_3"> with respective ratio of \{0.25,0.5,0.25\}. 
