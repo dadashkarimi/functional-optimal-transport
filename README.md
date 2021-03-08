@@ -69,6 +69,35 @@ M = ot.dist(coord_268, coord_368,metric='cityblock')
 M /= M.max()
 ```
 
+## Learning Mapping
+
+```python
+
+def normalize(x):
+    return (x-min(x))/(max(x)-min(x))
+    
+num_subj, num_time_points = all_268.shape[:2]
+frame_size = 1200
+num_frames = num_time_points/frame_size
+nrow=2
+ncol=3
+G = np.zeros((num_time_points,268,367))
+
+for i in tqdm(range(0,num_time_points,frame_size),"Optimal Transport", ncols = 80, position = 0):#range(num_time_points):
+    for j in range(train_size):#(train_size):
+        lambd = 1e-3
+        a2 = all_268[train_index[j],i,:]
+        b2 = all_368[train_index[j],i,:]
+        a2 = normalize(a2)+1e-5
+        b2 = normalize(b2)+1e-5
+
+        a2= a2/a2.sum(axis=0,keepdims=1)
+        b2= b2/b2.sum(axis=0,keepdims=1)
+        m = ot.sinkhorn(a2, b2, M, lambd, verbose=False)
+        m = m/m.sum(axis=0,keepdims=1)
+        G[i:i+frame_size] = G[i:i+frame_size]+ m
+    G[i:i+frame_size] = G[i:i+frame_size]/train_size
+```
 
 # Parameter Tuning
 As a control we run a couple of other experiments to verify usefulness of the new connectomes in brain-behavior association and individual classification.
