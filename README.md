@@ -24,9 +24,9 @@ For paired time-series data from the same individual but from two different atla
 
 <img src="https://render.githubusercontent.com/render/math?math=L_c(\mu_t,\nu_t) =\min_{{T}}C^T{T}\textbf{ s.t, }A\underline{{T}}=\begin{bmatrix}\mu_t\\ \nu_t \end{bmatrix}">
 
-in which $\underline{\pazocal{T}}\in \mathbb{R}^{nm}$ is vectorized version of $\pazocal{T}$ such that the $i+n(j-1)$'s element of $\pazocal{T}$ is equal to $\pazocal{T}_{ij}$ and $A$ is defined as:
+where:
 
-![alt text](ot-eq.pdf)
+![alt text](ot-eq.png)
 
 The mapping $\pazocal{T}$ represents the optimal way of transforming the brain activity data from $n$ regions into $m$ regions.
 
