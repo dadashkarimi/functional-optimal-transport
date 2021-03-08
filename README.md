@@ -37,6 +37,7 @@ Thus, we use the  entropy regularization, which gives an approximation solution 
 
  Specifically, we use the Sinkhorn algorithm---an iterative solution \cite{Altschuler:2017}---to find the optimum mapping ${T}$ as implemented in the Python Optimal Transport (POT) toolbox \cite{flamary2017pot}.
 
+## Cost Matrix
 ```python
 
 def corr2_coeff(A, B):
@@ -53,7 +54,6 @@ all_268_mat = sio.loadmat('data/REST1/all_268.mat')
 all_368_mat = sio.loadmat('data/REST1/all_368.mat')
 all_268 = all_268_mat['data']
 all_368 = all_368_mat['data']
-from numpy import genfromtxt
 all_behav = genfromtxt('data/REST1/IQ.txt', delimiter=',')
 all_sex = genfromtxt('data/REST1/gender.txt', delimiter=',')
 
