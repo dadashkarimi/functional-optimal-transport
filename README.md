@@ -35,7 +35,7 @@ Thus, we use the  entropy regularization, which gives an approximation solution 
 
 <img src="https://render.githubusercontent.com/render/math?math=L_c(\mu_t,\nu_t) =\min_{{T}}C^T {T} - \epsilon H(T)\textbf{ s.t, } A\underline{{T}}=\begin{bmatrix}\mu_t \\ \nu_t \end{bmatrix}">
 
- Specifically, we use the Sinkhorn algorithm---an iterative solution for Equation~\ref{eq:reg} \cite{Altschuler:2017}---to find the optimum mapping ${T}$ as implemented in the Python Optimal Transport (POT) toolbox \cite{flamary2017pot}.
+ Specifically, we use the Sinkhorn algorithm---an iterative solution \cite{Altschuler:2017}---to find the optimum mapping ${T}$ as implemented in the Python Optimal Transport (POT) toolbox \cite{flamary2017pot}.
 
 ```python
 
