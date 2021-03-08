@@ -21,29 +21,6 @@ Admissible solution for Kantorvich relaxation is defined by a coupling matrix <i
 # Entropy Regularization and Functional Optimal Transport
 
 ```python
-import numpy as np
-import matplotlib.pylab as pl
-import matplotlib.pyplot as plt
-import ot
-import ot.plot
-from ot.datasets import make_1D_gauss as gauss
-import pandas as pd
-from sklearn import preprocessing
-from sklearn.preprocessing import normalize
-from scipy.io import loadmat
-from scipy.io import loadmat
-import ot
-import ot.plot
-from ot.datasets import make_1D_gauss as gauss
-import pandas as pd
-import random
-import scipy.io as sio
-import ot
-import ot.plot
-from ot.datasets import make_1D_gauss as gauss
-import pandas as pd
-import random
-from progress.bar import Bar
 
 def corr2_coeff(A, B):
     # Rowwise mean of input arrays & subtract from input arrays themeselves
