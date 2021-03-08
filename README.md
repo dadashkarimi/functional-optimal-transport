@@ -20,6 +20,28 @@ Admissible solution for Kantorvich relaxation is defined by a coupling matrix <i
 
 # Entropy Regularization and Functional Optimal Transport
 
+For paired time-series data from the same individual but from two different atlases according to the formulation in the paper:
+
+<img src="https://render.githubusercontent.com/render/math?math=L_c(\mu_t,\nu_t) =\min_{\pazocal{T}}C^T\pazocal{T}\textbf{ s.t, }A\underline{\pazocal{T}}=\begin{bmatrix}
+\mu_t\\ \nu_t \end{bmatrix}">
+
+in which $\underline{\pazocal{T}}\in \mathbb{R}^{nm}$ is vectorized version of $\pazocal{T}$ such that the $i+n(j-1)$'s element of $\pazocal{T}$ is equal to $\pazocal{T}_{ij}$ and $A$ is defined as:
+\begin{equation}
+\includegraphics[scale=0.65]{img/ot-eq.pdf}.
+\end{equation}
+The mapping $\pazocal{T}$ represents the optimal way of transforming the brain activity data from $n$ regions into $m$ regions.
+
+ Yet, solving a large linear program is computationally hard \cite{Dantzig:83}.
+Thus, we use the  entropy regularization, which gives an approximation solution with complexity of  $\mathcal{O}(n^2\log (n)\eta^{-3})$ for $\epsilon = \frac{4\log(n)}{\eta}$ \cite{Peyre:2019}, and instead solve the following:
+ \begin{equation}
+ \label{eq:reg}
+    L_c(\mu_t,\nu_t) = \min_{\pazocal{T}}C^T \pazocal{T} - \epsilon H(\pazocal T)\textbf{ s.t, } A\underline{\pazocal{T}}=   \begin{bmatrix}
+\mu_t \\
+\nu_t 
+\end{bmatrix} .
+\end{equation}
+ Specifically, we use the Sinkhorn algorithm---an iterative solution for Equation~\ref{eq:reg} \cite{Altschuler:2017}---to find the optimum mapping $\pazocal{T}$ as implemented in the Python Optimal Transport (POT) toolbox \cite{flamary2017pot}.
+
 ```python
 
 def corr2_coeff(A, B):
