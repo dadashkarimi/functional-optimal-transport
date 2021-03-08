@@ -31,7 +31,7 @@ where:
 The mapping ${T}$ represents the optimal way of transforming the brain activity data from $n$ regions into $m$ regions.
 
  Yet, solving a large linear program is computationally hard \cite{Dantzig:83}.
-Thus, we use the  entropy regularization, which gives an approximation solution with complexity of  <img src="https://render.githubusercontent.com/render/math?math=\mathcal{O}(n^2\log (n)\eta^{-3})"> for <img src="https://render.githubusercontent.com/render/math?math=\epsilon =\frac{4\log(n)}{\eta}"> \cite{Peyre:2019}, and instead solve the following:
+Thus, we use the  entropy regularization, which gives an approximation solution with complexity of  <img src="https://render.githubusercontent.com/render/math?math=\mathcal{O}(n^2\log (n)\eta^{-3})"> for <img src="https://render.githubusercontent.com/render/math?math=\epsilon =\frac{4\log(n)}{\eta}">, and instead solve the following:
 
 <img src="https://render.githubusercontent.com/render/math?math=L_c(\mu_t,\nu_t) =\min_{{T}}C^T {T} - \epsilon H(T)\textbf{ s.t, } A\underline{{T}}=\begin{bmatrix}\mu_t \\ \nu_t \end{bmatrix}">
 
