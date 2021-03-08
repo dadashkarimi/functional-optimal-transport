@@ -99,6 +99,32 @@ for i in tqdm(range(0,num_time_points,frame_size),"Optimal Transport", ncols = 8
     G[i:i+frame_size] = G[i:i+frame_size]/train_size
 ```
 
+## Reconstructing Connectmes
+
+```python
+all_behav_test = all_behav[test_index,]
+num_subj, num_time_points = all_268.shape[:2]
+
+test_time_series = np.zeros((test_size,num_time_points,367))
+for i in tqdm(range(num_time_points),"Timeseries", ncols = 80, position = 0):
+    for j in range(test_size):
+        a = all_268[test_index[j],i,:]
+        b= np.transpose(G[i]).dot(a)
+        test_time_series[j,i] = b
+
+all_368_new= np.zeros((test_size,367,367))
+
+for j in tqdm(range(test_size),"Correlation",ncols=80,position=0):
+    all_368_new[j] = corr2_coeff(test_time_series[j].T,test_time_series[j].T)
+    
+results = np.zeros((test_size,2))
+for j in  tqdm(range(test_size),"Evaluation",ncols=80,position=0):
+    a= all_368_mats[test_index][j]#corr2_coeff(all_368[train_size+j].T,all_368[train_size+j].T)
+    b= all_368_new[j]
+    results[j][0] = ((a - b)**2).mean()
+    results[j][1] = pearsonr(a.flatten(),b.flatten())[0]
+```
+
 # Parameter Tuning
 As a control we run a couple of other experiments to verify usefulness of the new connectomes in brain-behavior association and individual classification.
 To this aim we partition our data into three folds <img src="https://render.githubusercontent.com/render/math?math=g_1, g_2,"> and <img src="https://render.githubusercontent.com/render/math?math=g_3"> with respective ratio of \{0.25,0.5,0.25\}. 
