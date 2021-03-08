@@ -22,8 +22,7 @@ Admissible solution for Kantorvich relaxation is defined by a coupling matrix <i
 
 For paired time-series data from the same individual but from two different atlases according to the formulation in the paper:
 
-<img src="https://render.githubusercontent.com/render/math?math=L_c(\mu_t,\nu_t) =\min_{{T}}C^T{T}\textbf{ s.t, }A\underline{{T}}=\begin{bmatrix}
-\mu_t\\ \nu_t \end{bmatrix}">
+<img src="https://render.githubusercontent.com/render/math?math=L_c(\mu_t,\nu_t) =\min_{{T}}C^T{T}\textbf{ s.t, }A\underline{{T}}=">
 
 in which $\underline{\pazocal{T}}\in \mathbb{R}^{nm}$ is vectorized version of $\pazocal{T}$ such that the $i+n(j-1)$'s element of $\pazocal{T}$ is equal to $\pazocal{T}_{ij}$ and $A$ is defined as:
 \begin{equation}
