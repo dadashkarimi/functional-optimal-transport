@@ -139,3 +139,15 @@ Our baseline is to test the same model on actual functional connectomes <img src
 We used fluid intelligence to study brain-behavior association and sex to classify participants based on.
 We also tested significance of the results using re-sampled ttest. 
 
+# Extrinsic Evaluation
+
+In addition to validating our approach, we demonstrated that the transformed connectomes can be used to elucidate brain-behavior associations. 
+To this aim, 
+
+1. We partitioned our data into three folds $g_1$, $g_2$, and $g_3$ with a respective ratio of $\{0.25,0.5,0.25\}$. 
+2.  Using only participants in $g_1$, we estimated the optimal mapping $\pazocal T$ for both cost matrices. 
+3. We applied $\pazocal T$ to the participants in $g_3$ to produce the transformed connectomes ($268 \rightarrow 368$ and $368 \rightarrow 268$).
+4. We predicted IQ using ridge regression \cite{Gao:2019} and classified sex using support vector machine (SVM) with a linear kernel \cite{Cortes:1995} using the connectomes in $g_2$ for both the $268 \time 268$ and $368 \time 368$, independently. All models were trained with $10$-fold cross-validation.
+5. We used the predictive models from Step \textbf{4)} to
+predict phenotypic information using the transformed matrices from Step \textbf{3)} (\textit{e.g.}, using the $268 \rightarrow 368$ connectomes as inputs to the models trained with the $368 \time 368$ connectomes).
+
