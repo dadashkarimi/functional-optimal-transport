@@ -102,7 +102,7 @@ for i in tqdm(range(0,num_time_points,frame_size),"Optimal Transport", ncols = 8
 ```
 
 ## Reconstructing Connectmes
-Here we want to transport the time series data from source to target parcellation. Once, we learned the mapping for each time frame, we are gonna apply it to the source distribution with n dimensionality to get target distribution with n dimensionality. At the end, all the transported distibutions will be stacked on top of each other to create time series data that we can correlate them to get a matrix of m by m connectome.
+At the end, all the transported distibutions will be stacked on top of each other to create time series data that we can correlate them to get a matrix of m by m connectome. We use Pearson correlation to create the matrices.
 
 ```python
 all_behav_test = all_behav[test_index,]
