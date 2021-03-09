@@ -38,6 +38,8 @@ Thus, we use the  entropy regularization, which gives an approximation solution 
  Specifically, we use the Sinkhorn algorithm---an iterative solution \cite{Altschuler:2017}---to find the optimum mapping ${T}$ as implemented in the Python Optimal Transport (POT) toolbox \cite{flamary2017pot}.
 
 ## Cost Matrix
+Here we define a fixed cost matrix between regions of source and target parcellation. This matrix will be used by Sinkhorn algorithm to find the optimum mapping between time series. 
+
 ```python
 
 def corr2_coeff(A, B):
@@ -70,6 +72,7 @@ M /= M.max()
 ```
 
 ## Learning Mapping
+Once we specified the cost matrix and created distributions mu and nu for a fixed time point, then we learn the optimal mapping between these. An optimal mapping is actually transport the source time series to the target one. But, before doing that all at once, we apply mappings on each time frame separately and then stack the final transportations on top of each other to create the target time series. 
 
 ```python
 
@@ -79,8 +82,7 @@ def normalize(x):
 num_subj, num_time_points = all_268.shape[:2]
 frame_size = 1200
 num_frames = num_time_points/frame_size
-nrow=2
-ncol=3
+
 G = np.zeros((num_time_points,268,367))
 
 for i in tqdm(range(0,num_time_points,frame_size),"Optimal Transport", ncols = 80, position = 0):#range(num_time_points):
