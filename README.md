@@ -11,11 +11,7 @@ Monge problem aims to solve the following optimizatin problem:
 
 <img src="https://render.githubusercontent.com/render/math?math=\min_{T}\Big\{, \sum_i c(x_i,T(x_i)):T_{\sharp}\alpha =\beta\Big\}">
 
-CAROT uses optimal transport theory, or the mathematics of converting a probability distribution from one set to another, to find an optimal mapping
-between two atlases that allows data processed from one atlas to be directly transformed into a connectome based on an
-unavailable atlas without needing raw data. CAROT is designed for functional connectomes based on functional magnetic
-imaging (fMRI) data. First, in a training sample with fMRI timeseries data from two different atlases, we find this mapping by
-solving the Monge–Kantorovich transportation problem7. 
+
 
 # Kantorvic Relaxation
 
